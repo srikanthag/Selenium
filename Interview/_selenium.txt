@@ -1,0 +1,769 @@
+1. Selenium Architecture
+there are 3 main part
+clint libreary, browser driver and actual driver
+
+Client libraries provide various methods to perform different browser actions. e.g. get, title,find_element
+Once we execute the script, the client libraries convert our code that we have written into a JSON (JavaScript Object
+Notation) format and sent as a request to Driver over HTTP.
+Each browser driver will be maintained by respective browser vendor.
+The driver interprets the incoming request from the client and controls the actual browser.
+Once the browser operation is complete, the response is sent back to the client/client library by driver in JSON format.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Latest version  of Selenium - 4.0
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Difference between close() and quit()
+close() closes only the current window on which Selenium is running automated tests. The WebDriver session, however,
+remains active. On the other hand, the driver. quit() method closes all browser windows and ends the WebDriver session.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. How do you write parent and child in XPath?
+Start by writing out the selenium Xpath for the parent and then traverse to desired object using back slashes like so
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. what is css locator and xpath
+css: css selectors in selenium are string patterns used to identify an element based on a combination of HTML tag,
+id, class, and attributes.
+
+xpath: Xpath is defined as XML path or path of the element in HTML DOM structure.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. write xpath for a scenario
+from selenium import webdriver
+from time import sleep
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome(r"C:\Users\srikanth\Desktop\IT\Testing\chromedriver_win32\chromedriver.exe")
+sleep(3)
+driver.maximize_window()
+driver.get("https://www.google.co.in")
+sleep(3)
+driver.find_element_by_xpath("//input[@class='gLFyf gsfi']").send_keys('Rohit sharma', Keys.ENTER)
+
+print(driver.title)
+print(driver.current_url)
+
+# driver.close()      # close current browser
+# driver.quit()       # close all browser
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. Dependent and independent writing xpath
+Use ../ to move one step upwards. We have to use ../ twice one for <td> and one to reach common parent <tr>.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. How do you read data from webtable
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. How do you check if the contents of the table are in sorted order or not
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. which is best locator in selenium
+ID locator in Selenium is the most preferred and fastest way to locate desired WebElements on the page.
+ID Selenium locators are unique for each element in the DOM.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10. What is test automation or automation testing?
+Automation testing enables the use of specialized tools to automate the execution of manually designed test cases
+without any human intervention.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11. css locator - Why css is the Fastest locator?
+Xpath allows bidirectional flow which means the traversal can be both ways from parent to child and child to
+parent as well. Css allows only one directional flow which means the traversal is from parent to child only.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+12. Exceptions
+NoSuchElementException: This exception is raised when the element is not found in DOM
+StaleElementException: Thrown when a reference to an element is now "stale" or Lost
+NoSuchAttributeException: Thrown when the attribute of element could not be found
+NoAlertPresentException: when the driver in the Selenium Program code is unable to find the Alert on the web page to switch.
+UnexpectedTagNameException: Thrown when you try to create an instance of Select class by passing a webelement where the
+HTML tag is other than <select>
+ElementNotVisibleException: Thrown when an element is present on the DOM, but it is not visible
+ElementNotInteractableException: Thrown when an element is present on the DOM but can not interaction with the element
+TimeoutException:
+NoSuchFrameException:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+13. mouse actions in selenium
+Actions class is an ability provided by Selenium for handling keyboard and mouse events.
+The Five mouse actions are Left Click, Right Click, Double Click, Drag & Drop, and Scroll.
+
+Mouse Actions in Selenium:
+
+1. doubleClick(): Performs double click on the element
+    action.double_click()
+2. clickAndHold(): Performs long click on the mouse without releasing it
+    action.click_and_hold()
+3. dragAndDrop(): Drags the element from one point and drops to another
+    action.drag_and_drop()
+4. moveToElement(): Shifts the mouse pointer to the center of the element
+    action.move_to_element()
+5. contextClick(): Performs right-click on the mouse
+    action.context_click()
+6. send_keys: The sendKeys(CharSequence KeysToSend) method is used to send a sequence of keys to a currently focussed web
+element. By using this we can page up, page down, enter, tab, escape task can we perform
+    action.send_keys
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+14. What are the advantages of automation testing?
+Automation testing supports both functional and performance test on an application.
+It supports the execution of repeated test cases.
+It facilitates parallel execution.
+It aids in testing a large test matrix.
+It improves accuracy because there are no chances of human errors.
+It saves time and money.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+15. What is Selenium?
+Selenium is a test framework for web application automation testing. It supports
+multiple browsers and is OS independent. Selenium also supports various programming
+languages like Java, C#, PHP, Ruby, and Perl, etc.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+16. What are the different components of Selenium?
+Selenium IDE: is primarily a record/run tool that a test case developer uses to develop Selenium Test cases.
+Selenium Remote Control: It is basically a server that allows to create test scripts in multiple programming languages and browsers.
+Selenium Web driver: Selenium WebDriver runs on various browsers like Chrome, IE, Safari and Firefox and so on.
+Selenium GRID: we can execute scripts in parallel
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17. List out the names of programming languages, browsers and operating systems that are supported by Selenium.
+Programming Languages: C#, Java, Python, PHP, Ruby, Perl, JavaScript.
+Operating Systems: Android, iOS, Windows, Linux, Mac, Solaris.
+Browsers: Google Chrome, Mozilla Firefox, Internet Explorer, Edge, Opera, Safari, etc.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+18. What are the significant changes/upgrades in various Selenium versions?
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+19. List the test types that are supported by Selenium.
+Functional Testing
+Regression Testing
+Sanity Testing
+Smoke Testing
+Responsive Testing
+Cross Browser Testing
+UI testing (black box)
+Integration Testing
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+20. What are the different ways of locating a web element in Selenium?
+name, id, class, text, xpath, css, partial text, tag name
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+21. What is meant by Selenese? Explain different types of Selenium commands.
+The language used for writing test scripts in Selenium IDE is called Selenese. It is a set of commands used
+to test your web application or system. Selenium commands could be divided into 3 major categories:
+
+Actions: These are the commands interacting directly with web applications.
+Accessors: These are the commands which allow users to store values to a user-defined variable.
+Assertions: They enable a comparison of the current state of the application with its expected state.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+22. What do you mean by the assertion in Selenium
+The assertion is used as a verification point. It verifies that the state of the application confirms to what is expected.
+The types of assertion are "assert", "verify" and "waitFor".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+23. Explain the difference between assert and verify commands?
+Assert: Assert command checks if the given condition is true or false. If the condition is true, the program control will
+execute the next phase of testing, and if the condition is false, execution will stop, and nothing will be executed.
+def func(n):
+    return n+1
+
+def test_answer():
+    assert func(3) == 4
+
+Verify: Verify command also checks if the given condition is true or false. It doesn't halt program execution,
+i.e., any failure during verification would not stop the execution, and all the test phases would be executed.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+24. How do you verify the color of the web element
+@property color
+.value_of_css_property(background_color)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+25. How do you get the location and size of a particular web element.
+xpath.size and xpath.location
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+26. What do you mean by XPath?
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+27. Difference between absolute xpath and relative xpath
+absolute: XPath Absolute enables users to mention the complete XPath location from the root HTML tag to the specific
+elements.
+Example: //html/body/div[2]/div/div[2]/div/div/div/fieldset/form/div[1]/input[1]
+
+relative: is always recommended when you don't have a suitable id or name attribute for the element you want to locate.
+Relative Xpath starts with double forward slash (//), meaning the element can be searched any where in the webpage.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+28. What is the difference between "/" and "//" in XPath?
+Single Slash "/": Single slash is used to create XPath with absolute path. To get immediate child.
+Double Slash "//": Double slash is used to create XPath with the relative path. To get any child.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+29. Difference between findElement and findElements
+While findElement can pinpoint only one element. The findElement method throws
+a NoSuchElementException exception when the element is not available on the page.
+findElements method returns the list of all matching elements.Whereas,
+the findElements method returns an empty list when the element is not available or doesn't exist on the page
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+30. Difference between implcit wait and explicit wait
+Synchronization: when two or more components involved to perform any action, we expect these components to work together
+with the same pace. The co-ordination between these components to run paralelly is called Synchronization.
+
+Selenium Python tries to find the element without bothering about whether elements are loaded or not, and
+selenium python throws NoSuchElementException if the element is not present.
+
+An explicit wait makes WebDriver wait for a certain condition to occur before proceeding further with execution.
+visibility_of_element_located checks if the web element is present on the DOM and also visible on the webpage.
+"TimeoutException" will be raised if either the element is not loaded onto the DOM or the element is not visible
+on the web page within timeout period.
+sleep() i.e. a static wait that will halt the test execution for some specified time and then perform the next step.
+
+Implicitly wait is one of the ways to request selenium not throw any exception until provided time.
+If the element is found before implicitly wait time, selenium moves to the next commands in the program without
+waiting further, this wait is also called dynamic wait. If element not present it throws Nosuchelement exception
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+31. How can we get a text of a web element?
+Get command is used to get the inner text of the specified web element. The get command doesn't require any parameter,
+but it returns a string type value.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+32. What is POM (Page Object Model)? What are its advantages?
+Page Object Model is a design pattern for creating an Object directory for web UI elements. Each web page is required
+to have its page class. The page class is responsible for finding the WebElements in web pages and then perform
+operations on WebElements.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+33. The benefits of using POM are as follows.
+It facilitates with separate operations and flows in the UI from Verification - improves code readability
+Multiple tests can use the same Object Repository because the Object Repository is independent of Test Cases.
+Reusability of code
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+34. How to capture screenshot in WebDriver?
+from selenium import webdriver
+driver = webdriver.Chrome(r"C:\Users\srikanth\Desktop\IT\Python\python_practice\_selenium\chromedriver.exe")
+driver.get("http://demowebshop.tricentis.com/")
+driver.get_screenshot_as_file(r'C:\Users\srikanth\Desktop\IT\Python\python_practice\_selenium\__selanium\google.png')
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+35. How can you find if an element is displayed on the screen?
+isDisplayed()
+isSelected()
+isEnabled()
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+36. How do you check broken links
+Links that are not reachable are known as broken links. They may be unavailable or inoperable due to a server issue.
+if we are not getting proper response from webpage it will get error or file no fount(404)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+37. Window handle
+The window handle is a unique identifier that stores the values of windows opened on a webpage and helps in window
+handling in Selenium. getWindowHandles( ) and getWindowHandles( ) handle windows in Selenium. The user has to switch
+from the parent window to the child window to work on them using switchTo().window(child_window); method.
+
+from selenium import webdriver
+from time import sleep
+import re
+driver = webdriver.Chrome(r"C:\Users\srikanth\Desktop\IT\Python\python_practice\_selenium\chromedriver.exe")
+driver.get("http://demowebshop.tricentis.com/")
+
+'''Twitter'''
+# driver.find_element_by_xpath("//a[text()='Twitter']").click()
+# sleep(5)
+# h = driver.window_handles
+# driver.switch_to.window(h[1])
+# sleep(5)
+#
+# driver.find_element_by_xpath("//input[@placeholder='Search Twitter']").send_keys("srikanth")
+# driver.switch_to.window(h[0])
+# sleep(5)
+# driver.find_element_by_xpath("//a[text()='Log in']").click()
+
+'''Facebook'''
+driver.find_element_by_xpath("//a[text()='Facebook']").click()
+sleep(5)
+h = driver.window_handles
+sleep(5)
+driver.switch_to.window(h[1])
+sleep(5)
+driver.find_element_by_name("email").send_keys("srikanth@i234")
+sleep(5)
+driver.find_element_by_xpath("//input[@placeholder='Password']").send_keys('123456789')
+sleep(5)
+driver.find_element_by_xpath("//span[text()='Log In']").click()
+sleep(5)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+38. @mark.parametrize
+mark. parametrize allows one to define multiple sets of arguments and fixtures at the test function or class.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+39. fixture
+Fixtures are used to pass the data to the test functions
+Each test can be run independently irrespective of previous test method is failed or passed
+Pass data to test with return or yield statement
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+40. Marker
+To use markers, we have to import pytest module in the test file. Markers are used to set various features/attributes
+to test functions. Pytest provides many inbuilt markers such as xfail, skip and parametrize.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+41. pytest
+PyTest is a testing framework that allows users to write test codes using Python.
+Pytest has its own way to detect the test file and test functions automatically, if not mentioned explicitly
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+42. what are the features of pytest in python
+@fixture
+Works with built-in unit tests.
+open source
+Easy to start with and simple syntax.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+43. What do CI and CD mean?
+CI and CD stand for continuous integration and continuous delivery/continuous deployment.
+
+CI is a modern software development practice in which incremental code changes are made frequently and reliably.
+Continuous delivery (CD) is the automated delivery of completed code to environments like testing and development.
+Continuous deployment is the next step of continuous delivery. Every change that passes the automated tests is
+automatically placed in production, resulting in many production deployments.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+44. What is a data driven framework?
+Data Driven Framework is an automation testing framework in which input values are read from data files and stored into
+variables in test scripts
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+45. how to single testcases
+We can run a specific test file by giving its name as an argument.
+pytest-vs tasks/test_four.py::test_asdict
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+46. Page object model(POM)
+Page Object Model, also known as POM, is a design pattern in Selenium that creates an object repository for
+storing all web elements. It is useful in reducing code duplication and improves test case maintenance.
+In Page Object Model, consider each web page of an application as a class file.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+47. What are different frameworks available in Python for unit testing?
+Robot
+PyTest
+Unittest
+DocTest
+Nose2
+Testify
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+48. How to set up PyTest?
+PyTest is a Python package that you can install using simple pip command.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+49. How to write unit test case in PyTest?
+@pytest. mark. parametrize decorator, where we can specify the names of the arguments that will be passed to the test
+function, and a list of arguments corresponding to the names.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+50. What is the commad to run testcases in PyTest?
+pytest <testcase_file.py>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+51. How to execute and run unit test cases?
+a. Execute all test cases from all the Python files in the given directory.
+pytest
+b. Run all the test cases from the given Python file name.
+pytest <file_name>
+c. Execute specific testcase from the given Python file.
+pytest <file_name>::<test_case>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+52. How to print consol log in PyTest
+Use -s option along with pytest command. If there is any print statement in your code, it will get printed on the console.
+pytest <testcase_to_execute> -s
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+53. name search
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome(r'C:\Users\srikanth\Desktop\IT\Python\python_practice\_selenium\_pytest\chromedriver.exe')
+driver.get('https://www.google.com/')
+driver.find_element_by_xpath("//input[@class='gLFyf gsfi']").send_keys('shruthi ma', Keys.ENTER)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+54. SELENIUM VERSIONS
+Selenium 1, which includes Selenium IDE, Selenium RC, and Selenium Grid.
+Selenium 2, which includes Selenium IDE, Selenium Web -Driver 2.x, Selenium RC, and Selenium Grid.
+Selenium 3, which includes Selenium IDE, Selenium Web-Driver 3.x, and Selenium Grid.
+With Selenium 4, the IDE is revived and now its add-on is available for major web-browsers like Firefox and Chrome.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+55. varification
+We check whether we are developing the right product or not.
+Verification includes different methods like Inspections, Reviews and Walkthroughs.
+Quality assurance comes under verification testing.
+Verification is done before the validation testing.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+56. validation
+We check whether the developed product is right.
+Validation includes testing like functional testing, system testing, integration, and User acceptance testing.
+Quality control comes under validation testing.
+After verification testing, validation testing takes place.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+57. What is data driven and keyword driven framework in Selenium?
+Data driven testing conduct tests by using several stored data, values and variables. Keyword driven testing conduct
+tests by using specific keywords.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+58. What is Automation?
+Automation is any action that can reduce human efforts.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+59. What all things can you automate?
+• Regression test suite
+• Smoke / Sanity test suite
+• Build deployment
+• Test data creation
+• Automating behind the GUI like testing of APIs and methods.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+60. When is Automation testing useful?
+Automation testing is useful in the following scenarios:
+a) Regression testing: In case of a bug fix or new module implementation, we have to make sure that the already
+implemented or unchanged functionality is not affected. In this case, we end up running the regression test case
+multiple times.
+For Example: After each change request or bug fix, after each iteration in case of incremental development approach, etc.
+
+b) Non-functional Testing: Testing the non-functional aspects of an application.
+For Example, Load testing or performance testing
+
+c) Repeated execution of the same tests: Sometimes, we have to run the same set of test case for a different set of data
+or after each build release or on multiple hardware, software or combination of both.
+Automating the test cases in the above scenarios helps in achieving the speed of testing and minimizing human errors.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+61. Can you achieve 100% automation?
+100% automation would be difficult to achieve because there would be many edge test cases and some cases that
+are executed rarely. Automating these cases which are not executed that often will not add value to the automated suite.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+62. How do you decide which tool you have to use?
+Concluding which tool is best suitable for the project requires a lot of brainstorming and discussions.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+63. What is a framework?
+A framework is a set of the structure of the entire automation suite. It is also a guideline, which if followed can result
+in a structure that is easy to maintain and enhance.
+These guidelines include:
+• Coding standards
+• Handling the test data
+• Maintaining and handling the elements (object repository in QTP)
+• Handling of environment files and properties file
+• Reporting of data
+• Handling logs
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+64. Can you do without a framework?
+Frameworks are guidelines and not mandatory rules, so we can do without a framework, but if we create it and follow it,
+enhancing and maintaining would be easy to implement.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+65. What are the different types of the Automation tool that you are aware of?
+Open source tool like Selenium, JMeter, etc.
+
+Paid tools like QTP, Load Runner, Ranorex, RFT, and Rational Robot.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+66. Where will you maintain information like URL, login, password?
+This information should always be maintained in a separate file.config
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+67. Why do you want to keep this kind of information in a separate file and not directly in the code?
+URL, Login, and passwords are the kind of fields that are used very often and these change as per the environment
+and authorization. In case we hardcode it into our code, we have to change it in every file which has its reference.
+In case if there are more than 100 files, then it becomes very difficult to change all the 100 files and this, in turn,
+can lead to errors. So this kind of information is maintained in a separate file so that updating becomes easy
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+68. What are the different types of frameworks?
+Different types of frameworks includes:
+• Keyword-driven framework: Keyword driven testing conduct tests by using specific keywords.
+• Data-Driven framework: Data driven testing conduct tests by using several stored data, values and variables
+• Hybrid Framework: Hybrid Driven Framework is a mix of both the Data-Driven and Keyword Driven frameworks.
+• Linear Scripting
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+69. Can you tell some good coding practices while automation?
+Some of the good coding practices include:
+• Add appropriate comments.
+• Identify the reusable methods and write it in a separate file.
+• Follow the language-specific coding conventions.
+• Maintain the test data in a separate file.
+• Run your scripts regularly.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+70. Any kind of test which you think should not be automated?
+• Exploratory testing
+• Usability testing
+• Test which is executed quickly when done manually.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+71. Which test cases can be automated?
+Types of test cases which can be automated are:
+(i) Smoke test cases: Smoke testing is also known as build verification testing. Smoke test cases are run every time
+when a new build is released to check the health of the build for acceptance to perform testing.
+
+(ii) Regression Test Cases: Regression testing is the testing to ensure that previously developed modules are functioning
+as expected after a new module is added or a bug is fixed.
+Regression test cases are very crucial in incremental software approach where a new functionality is added at each
+increment phase. In this case, regression testing is performed at each incremental phase.
+
+(iii) Non-functional test cases: Test cases like load tests and performance tests require a simulated environment
+with multiple users and multiple hardware or software combinations.
+Setting up multiple environments manually is impossible for each combination or number of users. Automated tools
+can easily create this environment to perform non-functional testing easily.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+72. What are the important modules of an automation testing framework?
+Important modules of an Automation testing framework are:
+1. Test Assertion Tool: This tool will provide assert statements for testing the expected values in the application
+    under test. For Example. TestNG, Junit, etc.
+2. Data Setup: Each test case needs to take the user data either from the database or from a file or embedded in the
+    test script. Frameworks data module should take care of the data intake for test scripts and the global variables.
+    eg. python, selenium, Pytest Framework, browser driver
+3. Build Management Tool: Framework needs to be built and deployed for the use of creating test scripts.
+4. Continuous integration tool: With CICD (Continuous Integration and Continuous Development) in place, continuous
+    integration tool is required for integrating and deploying the changes done in the framework at each iteration.
+5. Reporting tool: A reporting tool is required to generate a readable report after the test cases are executed for
+    a better view of the steps, results, and failures. eg. pip install pytest-html
+6. Logging tool: The logging tool in framework helps in better debugging of the error and bugs.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+73. plugns
+pip install pytest
+pytest --version
+pip install pytest-dependency (@mark.dependency)
+pip install pytest-html
+skip = @py.test.mark.skip
+report: pytest --html=report.html
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+74. webbrowser
+A web browser (also referred to as an Internet browser or simply a browser) is application software for accessing the
+World Wide Web or a local website. Firefox, Chrome, IE, and Safari
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+75. webdriver
+Selenium WebDriver is a collection of open source APIs which are used to automate the testing of a web application.
+Selenium WebDriver tool is used to automate web application testing to verify that it works as expected. It supports
+many browsers such as Firefox, Chrome, IE, and Safari
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+76. Product backlog: Features you want to implement but have not yet prioritized for release.
+The Product Backlog contains all the items in the software development project.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+77. Sprint backlog: User stories that need to be completed during a specific period of time.
+The Sprint Backlog contains only the items of the Backlog specific to the current Sprint.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+78. ageile meetings
+1. Sprint planning meeting: Assign the task to each engineer
+2. Daily standup meeting(scrum)
+3. Sprint review meeting: The sprint review allows your team to demonstrate a working model of the software to the audience
+4. Sprint retrospective meeting (Agile retrospective): The sprint retrospective is a recurring meeting held at the end
+of a sprint used to discuss what went well during the previous sprint cycle and what can be improved for the next sprint.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+79. how to start automation testing with selenium
+a. Decide What Test Cases to Automate
+Repetitive tests that run for multiple builds.
+Tests that tend to cause human error.
+Tests that require multiple data sets.
+
+b. Select the Right Automated Testing Tool
+Selecting an automated testing tool is essential for test automation. There are a lot of automated testing tools on
+the market, and it is important to choose the automated testing tool that best suits your overall requirements.
+
+c. Divide Your Automated Testing Efforts
+Usually, the creation of different tests is based on the QA engineers’ skill levels.
+
+d. Create Good, Quality Test Data
+This data might be read from a database or any other data source like text or XML files, Excel sheets, and database tables.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+80. libraries
+a. xlrd: xlrd is a module that allows Python to read data from Excel files.
+b. JSON: The json library can parse JSON from strings or files. The library parses JSON into a Python dictionary or list.
+It can also convert Python dictionaries or lists into JSON strings.
+c. csv: The csv module implements classes to read and write tabular data in CSV format.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+81. What is Selenium WebDriver?
+Selenium WebDriver is a web framework that permits you to execute cross-browser tests. This tool is used for automating
+web-based application testing to verify that it performs expectedly. Selenium WebDriver allows you to choose a programming
+language to create test scripts.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+82. What is cross browser testing?
+Cross Browser testing is a type of non-functional testing that lets you check whether your website works as intended
+when accessed through: Different Browser-OS combinations i.e., on popular browsers like Firefox, Chrome, Edge,
+Safari—on any of the popular operating systems like Windows, macOS, iOS and Android.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+83. Pytest - Grouping the Tests
+Pytest allows us to use markers on test functions. Markers are used to set various features/attributes to test functions. Pytest provides many inbuilt markers such as xfail, skip and parametrize.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+84. logger
+a. error: This status is assigned to tests that caused an exception from the tested source code.
+b. failed: If at least one child test fails, all its parent tests are marked as failed.
+c. passes: Test passed successfully.
+d. skip: The simplest way to skip a test function (@pytest.mark.skip)
+e. Expected failure (xfail): An xfail means that you expect a test to fail for some reason. (@pytest.mark.xfail). A common example is a test for a feature not yet implemented, or a bug not yet fixed. When a test passes despite being expected to fail (marked with pytest. mark. xfail ), it's an xpass and will be reported in the test summary.
+f. Expected pass(xpass): When a test passes insted of expected to fail (marked with pytest. mark. xfail ), it's an xpass and will be reported in the test summary.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+85. What is pytest-dependency?
+This pytest plugin manages dependencies of tests. It allows to mark some tests as dependent from other tests. These tests will then be skipped if any of the dependencies did fail or has been skipped.
+pip install pytest-dependency
+Both the tests are decorated with mark.dependency()
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+86. How do you run failed test cases in pytest?
+The plugin provides two command line options to rerun failures from the last pytest invocation:
+--lf , --last-failed - to only re-run the failures.
+--ff , --failed-first - to run the failures first and then the rest of the tests.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+87. Functional and non-functional testing
+Functional testing verifies each function/feature of the software whereas Non Functional testing verifies non-functional aspects like performance, usability, reliability.
+Functional requirements explain how the system must work, while non functional requirements explain how the system should perform.
+Functional testing is done based on the business requirement. Non- functional testing is done based on the customer expectation and Performance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+88. Scooping of fixture
+Pytest fixture have five different scoop. Functuon, module, class, package and session
+The scoop basically control how each fixture will be control
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+89. The discovery of fixture
+The discovery of fixture functions starts at test classes, then test modules, then conftest.py files.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+90. Setup/Teardown
+Statements before yield keyword run’s once before every test function and statements after yield keyword run’s once after
+every test function. Thus fixture acting as setup and tear down method.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+91. Exploring pytest command line options
+python -m pytest: You can invoke testing through python interpreter from the command line.
+pytest –fixtures: This will give you available fixtures
+pytest -h or pytest –help: This shows help on command line and config-line options
+pytest -x: This command stops execution after the first failure.
+pytest –maxfail=n: This command stops execution after nth failure. n can be any number such as 1.2.3
+pytest test_login: This command helps to run tests by specifying the module name.
+pytest directory_name/: This command runs the tests from the directory
+
+
