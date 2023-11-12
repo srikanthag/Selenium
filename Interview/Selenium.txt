@@ -243,7 +243,7 @@ the findElements method returns an empty list when the element is not available 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-30. Difference between implcit wait and explicit wait
+30. Difference between implicit wait and explicit wait
 Synchronization: when two or more components involved to perform any action, we expect these components to work together
 with the same pace. The co-ordination between these components to run parallel is called Synchronization.
 
@@ -363,8 +363,8 @@ to test functions. Pytest provides many inbuilt markers such as xfail, skip and 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-41. pytest
-PyTest is a testing framework that allows users to write test codes using Python.
+41. What is Pytest
+Pytest is a testing framework that allows users to write test codes using Python.
 Pytest has its own way to detect the test file and test functions automatically, if not mentioned explicitly
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -392,7 +392,7 @@ variables in test scripts
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-45. how to single testcases
+45. How to single testcases
 We can run a specific test file by giving its name as an argument.
 pytest-vs tasks/test_four.py::test_asdict
 
@@ -426,7 +426,7 @@ function, and a list of arguments corresponding to the names.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-50. What is the commad to run testcases in PyTest?
+50. What is the command to run testcases in PyTest?
 pytest <testcase_file.py>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -441,13 +441,13 @@ pytest <file_name>::<test_case>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-52. How to print consol log in PyTest
+52. How to print console log in PyTest
 Use -s option along with pytest command. If there is any print statement in your code, it will get printed on the console.
 pytest <testcase_to_execute> -s
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-53. name search
+53. Name search
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -465,7 +465,7 @@ With Selenium 4, the IDE is revived and now its add-on is available for major we
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-55. varification
+55. Verification
 We check whether we are developing the right product or not.
 Verification includes different methods like Inspections, Reviews and Walkthroughs.
 Quality assurance comes under verification testing.
@@ -473,7 +473,7 @@ Verification is done before the validation testing.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-56. validation
+56. Validation
 We check whether the developed product is right.
 Validation includes testing like functional testing, system testing, integration, and User acceptance testing.
 Quality control comes under validation testing.
@@ -524,7 +524,7 @@ are executed rarely. Automating these cases which are not executed that often wi
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 62. How do you decide which tool you have to use?
-Concluding which tool is best suitable for the project requires a lot of brainstorming and discussions.
+Concluding which tool is the best suitable for the project requires a lot of brainstorming and discussions.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -548,7 +548,7 @@ enhancing and maintaining would be easy to implement.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 65. What are the different types of the Automation tool that you are aware of?
-Open source tool like Selenium, JMeter, etc.
+Open source tool like Selenium, JMeter, Jenkins, Postman, Polarion (Manual testing)
 
 Paid tools like QTP, Load Runner, Ranorex, RFT, and Rational Robot.
 
@@ -577,7 +577,7 @@ Different types of frameworks includes:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 69. Can you tell some good coding practices while automation?
-Some of the good coding practices include:
+Some good coding practices include:
 • Add appropriate comments.
 • Identify the reusable methods and write it in a separate file.
 • Follow the language-specific coding conventions.
@@ -610,7 +610,7 @@ can easily create this environment to perform non-functional testing easily.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-72. What are the important modules of an automation testing framework?
+72. What are the important modules of an automation testing framework ?
 Important modules of an Automation testing framework are:
 1. Test Assertion Tool: This tool will provide assert statements for testing the expected values in the application
     under test. For Example. TestNG, Junit, etc.
@@ -636,13 +636,13 @@ report: pytest --html=report.html
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-74. webbrowser
+74. Web browser
 A web browser (also referred to as an Internet browser or simply a browser) is application software for accessing the
 World Wide Web or a local website. Firefox, Chrome, IE, and Safari
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-75. webdriver
+75. Webdriver
 Selenium WebDriver is a collection of open source APIs which are used to automate the testing of a web application.
 Selenium WebDriver tool is used to automate web application testing to verify that it works as expected. It supports
 many browsers such as Firefox, Chrome, IE, and Safari
@@ -659,7 +659,7 @@ The Sprint Backlog contains only the items of the Backlog specific to the curren
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-78. ageile meetings
+78. Agile meetings
 1. Sprint planning meeting: Assign the task to each engineer
 2. Daily standup meeting(scrum)
 3. Sprint review meeting: The sprint review allows your team to demonstrate a working model of the software to the audience
@@ -709,7 +709,8 @@ Safari—on any of the popular operating systems like Windows, macOS, iOS and An
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 83. Pytest - Grouping the Tests
-Pytest allows us to use markers on test functions. Markers are used to set various features/attributes to test functions. Pytest provides many inbuilt markers such as xfail, skip and parametrize.
+Pytest allows us to use markers on test functions. Markers are used to set various features/attributes to test functions.
+Pytest provides many inbuilt markers such as xfail, skip and parametrize.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -745,7 +746,7 @@ Functional testing is done based on the business requirement. Non- functional te
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 88. Scooping of fixture
-Pytest fixture have five different scoop. Functuon, module, class, package and session
+Pytest fixture have five different scoop. Function, module, class, package and session
 The scoop basically control how each fixture will be control
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -757,7 +758,7 @@ The discovery of fixture functions starts at test classes, then test modules, th
 
 90. Setup/Teardown
 Statements before yield keyword run’s once before every test function and statements after yield keyword run’s once after
-every test function. Thus fixture acting as setup and tear down method.
+every test function. Thus, fixture acting as setup and tear down method.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -773,15 +774,41 @@ pytest directory_name/: This command runs the tests from the directory
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-92. Select calss in selenium
+92. Select class in selenium
 * All list box related methods are implemented inside the class “Select”.
 * In order to access methods of ”Select” class, we need to create an object instance to the ”Select” class and pass
 a “WebElement” (list box) as constructor argument.
 
+
+driver = webdriver.Chrome(r"C:\Users\hp\Desktop\IT\Testing\_selenium_files\_pytest\chromedriver.exe")
+
+driver.get("file:///C:/Users/srikanth/Downloads/demo.html")
+cars = driver.find_element_by_id("standard_cars")
+s = Select(cars)
+all_option = s.options
+
+
 * There are 3 different methods available in “Select” class to select an item from the list box.
 1. select_item_by_visible_text
+
+s.select_by_visible_text("Audi")
+sleep(1)
+s.select_by_visible_text("Toyota")
+sleep(1)
+
 2. select_item_by_index
+
+s.select_by_index(4)
+sleep(1)
+s.select_by_index(6)
+sleep(1)
+
 3. select_by_value
+
+s.select_by_value('jgr')
+sleep(1)
+s.select_by_value('lr')
+sleep(1)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -791,6 +818,14 @@ a “WebElement” (list box) as constructor argument.
 * To get the text of all the options, we need to iterate over the list that is returned by options method and call the attribute
 “text” on each item of the list.
 
+cars = driver.find_element_by_id("standard_cars")
+s = Select(cars)
+all_option = s.options
+
+for item in all_option:
+    print(item.text)
+    sleep(2)
+driver.close()
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 94. How to handle alert and popups

@@ -4,27 +4,27 @@ from selenium.webdriver.support.select import Select
 driver = webdriver.Chrome(r"C:\Users\hp\Desktop\IT\Testing\_selenium_files\_pytest\chromedriver.exe")
 
 driver.get("file:///C:/Users/srikanth/Downloads/demo.html")
-# cars = driver.find_element_by_id("standard_cars")
-# s = Select(cars)
-# all_option = s.options
+cars = driver.find_element_by_id("standard_cars")
+s = Select(cars)
+all_option = s.options
 
 '''select by visible_text'''
-# s.select_by_visible_text("Audi")
-# sleep(1)
-# s.select_by_visible_text("Toyota")
-# sleep(1)
+s.select_by_visible_text("Audi")
+sleep(1)
+s.select_by_visible_text("Toyota")
+sleep(1)
 
 '''select by index'''
-# s.select_by_index(4)
-# sleep(1)
-# s.select_by_index(6)
-# sleep(1)
+s.select_by_index(4)
+sleep(1)
+s.select_by_index(6)
+sleep(1)
 
 '''select by value'''
-# s.select_by_value('jgr')
-# sleep(1)
-# s.select_by_value('lr')
-# sleep(1)
+s.select_by_value('jgr')
+sleep(1)
+s.select_by_value('lr')
+sleep(1)
 
 # ========================================================================================================
 
