@@ -18,10 +18,3 @@ for r in range(1,Rows+1):
     for c in range(1, Columns+1):
         print(sheet.cell(row=r,column=c).value, end="    " )
     print()
-
-
-
-
-
-
-
