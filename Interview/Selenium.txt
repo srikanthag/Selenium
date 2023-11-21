@@ -1187,7 +1187,28 @@ Analyze error messages, stack traces, and WebDriver logs to understand the root 
 11. Continuous Improvement:
 Regularly review and refactor test scripts for readability, maintainability, and robustness.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+109. How to handle Exception using python try and except
 
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+
+# Initialize the WebDriver
+driver = webdriver.Chrome(r"C:\Users\hp\Desktop\Chromedriver\chromedriver-win64\chromedriver.exe")
+
+try:
+    # Open a website
+    driver.get("https://www.google.com")
+
+    # Attempt to find an element that doesn't exist
+    missing_element = driver.find_element_by_xpath("//textarea[@id='APjmmmFqb']")
+
+except NoSuchElementException as e:
+    print("Element not found:", e)
+
+finally:
+    # Close the browser window
+    driver.quit()
 
 
 
