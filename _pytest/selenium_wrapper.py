@@ -1,16 +1,13 @@
 from selenium.webdriver.support.select import Select
 from _pytest.wait import wait
 
-class Selenium_Wrapper:
+class Selenium_Wrappers():
     def __init__(self, driver):
         self.driver = driver
 
     @wait
     def click_element(self, locator):
-        """
-        Clicks on the element
-        useage: click_element("id", "register")
-        """
+        """Clicks on the element usage: click_element("id", "register")"""
         self.driver.find_element(*locator).click()       # find_element("link text", "register")
 
     @wait
@@ -30,15 +27,3 @@ class Selenium_Wrapper:
             s.select_by_index(item)
         else:
             raise TypeError
-
-
-
-
-
-
-
-
-
-
-
-

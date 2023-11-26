@@ -183,9 +183,7 @@ It saves time and money.
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 15. What is Selenium?
-Selenium is a test framework for web application automation testing. It supports
-multiple browsers and is OS independent. Selenium also supports various programming
-languages like Java, C#, PHP, Ruby, and Perl, etc.
+Selenium is a test framework for web application automation testing. It supports multiple browsers and is OS independent. Selenium also supports various programming languages like Java, C#, PHP, Ruby, and Perl, etc.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -242,8 +240,7 @@ The types of assertion are "assert", "verify" and "waitFor".
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 23. Explain the difference between assert and verify commands?
-Assert: Assert command checks if the given condition is true or false. If the condition is true, the program control will
-execute the next phase of testing, and if the condition is false, execution will stop, and nothing will be executed.
+Assert: Assert command checks if the given condition is true or false. If the condition is true, the program control will execute the next phase of testing, and if the condition is false, execution will stop, and nothing will be executed.
 def func(n):
     return n+1
 

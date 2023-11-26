@@ -17,6 +17,3 @@ class LoginPage(Selenium_Wrapper):
     
     def login_click_login(self):
         self.click_element(LoginPage._btn_login)
-
-
-

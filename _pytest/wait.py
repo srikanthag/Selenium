@@ -1,7 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import visibility_of_element_located
 from selenium.webdriver.remote.webelement import WebElement
-from p.config import Config
+from _pytest.config import Config
 
 class _visibility_of_element_located(visibility_of_element_located):
     def __call__(self, driver): #__call__ is inhetrit from parent

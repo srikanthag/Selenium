@@ -19,6 +19,7 @@ def test_registration(_driver, gender, fname, lname, email, password):
         reg.registration_select_male()
     else:
         reg.registration_select_female()
+
     # enter fname
     reg.registration_enter_first_name(fname)
 
