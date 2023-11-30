@@ -1138,21 +1138,27 @@ driver.get("https://google.com")
 1. NoSuchElementException:
 Cause: Occurs when WebDriver cannot locate an element.
 Handling: Use explicit waits (WebDriverWait) to wait for the element to be present, visible, or clickable before interacting with it. Implement try-except blocks to handle this exception by either retrying the action or handling it gracefully.
+
 2. TimeoutException:
 Cause: Occurs when WebDriver waits for an element to be available or perform an action within a specified timeout period but exceeds the defined time.
 Handling: Increase the timeout duration using explicit waits or adjust the waiting conditions. Implement retries or introduce additional synchronization strategies to handle slow-loading elements.
+
 3. StaleElementReferenceException:
 Cause: Occurs when the element reference becomes stale or invalid due to the page being refreshed or modified after the element was located.
 Handling: Use try-except blocks with a retry mechanism to re-locate the element or refresh the page before interacting with the element again.
+
 4. ElementNotInteractableException:
 Cause: Occurs when an element is present on the page but not in a state to be interacted with (e.g., hidden, disabled, or overlapped by another element).
-Handling: Ensure the element is in an interactable state (visible, enabled) before performing actions. Adjust test logic to handle scenarios where the element might not be interactable.
+Handling: Ensure the element is in an intractable state (visible, enabled) before performing actions. Adjust test logic to handle scenarios where the element might not be intractable.
+
 5. WebDriverException:
 Cause: A generic exception that covers a range of WebDriver-related issues like session not created, server not reachable, etc.
 Handling: Handle specific cases based on the error message or stack trace provided in the exception. Implement robust exception handling to log details and handle exceptions gracefully.
+
 6. UnexpectedAlertPresentException:
 Cause: Occurs when an unexpected alert is present on the page.
 Handling: Use switch_to.alert to handle the alert by accepting, dismissing, or getting the text. Use try-except blocks to handle alerts as needed based on test scenarios.
+
 7. SessionNotCreatedException:
 Cause: Occurs when WebDriver is unable to create a new session or instance of the browser due to driver or system configuration issues.
 Handling: Review and resolve driver compatibility issues, ensure drivers are updated, and check for any system configurations causing conflicts.
@@ -1206,10 +1212,5 @@ except NoSuchElementException as e:
 finally:
     # Close the browser window
     driver.quit()
-
-
-
-
-
 
 
