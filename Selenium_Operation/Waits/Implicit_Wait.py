@@ -11,8 +11,3 @@ driver.implicitly_wait(10)  #applicable for all the elements in the page
 
 driver.find_element_by_xpath("//input[@id='twotabsearchtextbox']").send_keys('mens Fasttrack watch', Keys.ENTER)
 driver.find_element_by_xpath("//span[@id='nav-cart-count']")
-
-
-
-
-

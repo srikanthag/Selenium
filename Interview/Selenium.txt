@@ -312,15 +312,12 @@ b. Implicitly wait
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 31. How can we get a text of a web element?
-Get command is used to get the inner text of the specified web element. The get command doesn't require any parameter,
-but it returns a string type value.
+Get command is used to get the inner text of the specified web element. The get command doesn't require any parameter, but it returns a string type value.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 32. What is POM (Page Object Model)? What are its advantages?
-Page Object Model is a design pattern for creating an Object directory for web UI elements. Each web page is required
-to have its page class. The page class is responsible for finding the WebElements in web pages and then perform
-operations on WebElements.
+Page Object Model is a design pattern for creating an Object directory for web UI elements. Each web page is required to have its page class. The page class is responsible for finding the WebElements in web pages and then perform operations on WebElements.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -444,8 +441,7 @@ pytest-vs tasks/test_four.py::test_asdict
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 46. Page object model(POM)
-Page Object Model, also known as POM, is a design pattern in Selenium that creates an object repository for
-storing all web elements. It is useful in reducing code duplication and improves test case maintenance.
+Page Object Model, also known as POM, is a design pattern in Selenium that creates an object repository for storing all web elements. It is useful in reducing code duplication and improves test case maintenance.
 In Page Object Model, consider each web page of an application as a class file.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
