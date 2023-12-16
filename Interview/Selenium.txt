@@ -666,7 +666,7 @@ Important modules of an Automation testing framework are:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-73. plugns
+73. plugins
 pip install pytest
 pytest --version
 pip install pytest-dependency (@mark.dependency)
