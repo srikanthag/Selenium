@@ -1,3 +1,10 @@
+"""  Implicitly wait """
+# * Implicit Wait time is applied to all the elements in the script
+# * An Implicitly wait is one of the ways to request selenium not throw any exception until provided time.
+# * If the element is found before implicitly wait time, selenium moves to the next commands in the program without
+#   waiting further, this wait is also called dynamic wait. If element not present it throws Nosuchelement exception
+
+
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.keys import Keys
