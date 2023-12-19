@@ -45,4 +45,3 @@ def test_divide():
     assert divide(10, 2) == 5
     assert divide(8, 4) == 2
 
-
