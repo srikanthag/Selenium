@@ -1,0 +1,29 @@
+*** What is Selenium.
+Selenium is one of the most widely used open source Web UI (User Interface) automation testing suite.
+It was originally developed by Jason Huggins in 2004 as an internal tool at Thought Works.
+Selenium supports automation across different browsers, platforms and programming languages.
+
+*** Why we use Selenium for automation testing?
+a. We can use any programming language like Java, Python, Ruby, Perl, C#, and so on to create the Selenium test scripts.
+b. We can execute the selenium test script in many different operating system platforms that are Windows, Mac, Linux, etc.
+c. Browsers like Google Chrome, Mozilla Firefox, Internet Explorer, Safari, etc are used to implement the selenium test scripts.
+d. The Selenium testing tool can be associated with other testing tools such as TestNG, Junit for managing the test cases, and generating test reports.
+e. To achieve continuous testing, Selenium is integrated with Maven, Jenkins, and Docker testing tools.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
