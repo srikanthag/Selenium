@@ -10,18 +10,8 @@ driver.maximize_window()
 
 # Open Google
 driver.get("https://www.google.co.in")
-
-# Wait for 10 seconds (optional)
-time.sleep(10)
-
-# Find the search input element by name
-search_input = driver.find_element("id", "APjFqb")
-
-# Enter the search query
-search_input.send_keys('Rohit Sharma', Keys.ENTER)
-
-# Wait for the page to load (optional)
 time.sleep(5)
+driver.find_element_by_xpath("//textarea[@id='APjFqb']").send_keys('ROhit sharma', Keys.ENTER)
 
 # Print the title and current URL
 print("Title:", driver.title)
