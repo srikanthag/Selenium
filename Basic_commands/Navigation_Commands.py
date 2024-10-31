@@ -19,5 +19,4 @@ print(driver.title)
 driver.forward()
 print(driver.title)
 
-
 driver.close()

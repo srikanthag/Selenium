@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-
 driver = webdriver.Chrome(r"C:\Users\hp\Desktop\IT\Testing\Selenium_Class\Chromedriver\chromedriver.exe")
 
 time.sleep(10)
@@ -20,8 +19,3 @@ print("URL:", driver.current_url)
 # Close the browser
 driver.close()      # close current browser
 driver.quit()       # close all browser
-
-
-
-
-

@@ -14,8 +14,6 @@ print(alert.text)
 # accept the alert
 alert.accept()
 
-# =========================================================================================================
-
 driver = webdriver.Chrome(r"C:\Users\srikanth\Desktop\IT\Testing\selenium_tutorial\drivers\chromedriver.exe")
 sleep(3)
 driver.get("https://demo.automationtesting.in/Alerts.html")

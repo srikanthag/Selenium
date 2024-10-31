@@ -659,7 +659,7 @@ b. failed: If at least one child test fails, all its parent tests are marked as 
 c. passes: Test passed successfully.
 d. skip: The simplest way to skip a test function (@pytest.mark.skip)
 e. Expected failure (xfail): An xfail means that you expect a test to fail for some reason. (@pytest.mark.xfail). A common example is a test for a feature not yet implemented, or a bug not yet fixed. When a test passes despite being expected to fail (marked with pytest. mark. xfail ), it's an xpass and will be reported in the test summary.
-f. Expected pass(xpass): When a test passes insted of expected to fail (marked with pytest. mark. xfail ), it's an xpass and will be reported in the test summary.
+f. Expected pass(xpass): When a test passes instead of expected to fail (marked with pytest. mark. xfail ), it's an xpass and will be reported in the test summary.
 ---------------------------------------------------------------------------------------------------------
 85. What is pytest-dependency?
 This pytest plugin manages dependencies of tests. It allows to mark some tests as dependent from other tests. These tests will then be skipped if any of the dependencies did fail or has been skipped.
@@ -809,7 +809,7 @@ element = driver.find_element(By.CSS_SELECTOR, "div.container input[type='text']
 
 * XPath: By.XPATH
 element = driver.find_element(By.XPATH, "//div[@class='parent']/following-sibling::div")
--------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 99. Explain the advantages and disadvantages of XPath vs. CSS selectors.
 Advantages of XPath:
 * Powerful Selection Capability: XPath allows for very complex and flexible element selection. It can traverse the entire document structure, allowing you to select elements based on various attributes, positions, text, and more.
@@ -1064,5 +1064,3 @@ except NoSuchElementException as e:
 finally:
     # Close the browser window
     driver.quit()
-
-

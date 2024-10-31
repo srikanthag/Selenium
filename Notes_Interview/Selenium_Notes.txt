@@ -9,21 +9,3 @@ b. We can execute the selenium test script in many different operating system pl
 c. Browsers like Google Chrome, Mozilla Firefox, Internet Explorer, Safari, etc are used to implement the selenium test scripts.
 d. The Selenium testing tool can be associated with other testing tools such as TestNG, Junit for managing the test cases, and generating test reports.
 e. To achieve continuous testing, Selenium is integrated with Maven, Jenkins, and Docker testing tools.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

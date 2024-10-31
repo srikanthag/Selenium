@@ -14,6 +14,7 @@ try:
     # For example, checking if the title contains 'Example Domain'
     assert 'Facebook' in driver.title
     print("Assertion passed: Title contains 'Facebook'")
+
 except AssertionError:
     print("Assertion failed: Title doesn't contain 'Google'")
 
@@ -44,8 +45,8 @@ try:
     # Get the value of a specific attribute (e.g., 'href' attribute of a link)
     href_value = element.get_attribute('href')
     print(f"Element's href attribute value: {href_value}")
-
     print("Element is present and displayed")
+
 except Exception as e:
     print(f"Element verification failed: {e}")
 
