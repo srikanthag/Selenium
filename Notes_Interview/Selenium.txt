@@ -1,6 +1,6 @@
 1. Selenium Architecture
 there are 3 main part
-clint libreary, browser driver and actual driver
+clint library, browser driver and actual driver
 
 Client libraries provide various methods to perform different browser actions. e.g. get, title,find_element
 Once we execute the script, the client libraries convert our code that we have written into a JSON (JavaScript Object Notation) format and sent as a request to Driver over HTTP.
@@ -27,8 +27,8 @@ E.g.
 * / to indicate the immediate child node
 * // to denote any descendant node, regardless of depth
 ---------------------------------------------------------------------------------------------------------
-5. what is css locator and xpath
-css: In Selenium, CSS locators are one of the primary methods used to identify and interact with elements on a web page.
+5. What is css locator and xpath
+CSS: In Selenium, CSS locators are one of the primary methods used to identify and interact with elements on a web page.
 CSS locators use CSS selectors to find elements based on their attributes, IDs, classes, or other properties. Here are some examples of CSS locators:
 
 Syntax:

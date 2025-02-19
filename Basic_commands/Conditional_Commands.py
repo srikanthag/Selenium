@@ -1,8 +1,7 @@
 from selenium import webdriver
 from time import sleep
-from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Chrome(r"C:\Users\hp\Desktop\IT\Testing\Selenium_Class\Chromedriver\chromedriver.exe")
+driver = webdriver.Chrome(r"D:\IT\Selenium\Chromedriver\chromedriver.exe")
 sleep(3)
 driver.maximize_window()
 
