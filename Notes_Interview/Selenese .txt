@@ -1,0 +1,200 @@
+Selenese refers to the set of commands used in Selenium to interact with a web browser in order to perform automated tasks. Selenese commands are a key part of Selenium's functionality, primarily in its old interface, which has now evolved into modern web automation tools.
+
+With Python and Selenium, we no longer directly write Selenese commands (like you would with Selenium IDE), but we interact with the browser using Python scripts to achieve the same goal.
+
+Here's a simple example of Python Selenium script that mimics some typical Selenese behavior:
+
+1. Installing Selenium:
+To use Selenium with Python, you need to install the selenium package:
+pip install selenium
+
+2. Example: Automating Browser Tasks with Selenium (Python)
+The following Python code demonstrates the equivalent of some Selenese commands (like opening a page, clicking an element, and verifying page content).
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome()
+driver.get('https://www.google.com')
+driver.implicitly_wait(10)
+search_box = driver.find_element(By.NAME, 'q')
+search_box.send_keys('Selenium with Python')
+search_box.send_keys(Keys.RETURN)
+driver.implicitly_wait(10)
+assert "Selenium" in driver.page_source
+print(driver.title)
+driver.quit()
+   
+
+Explanation of Selenese Commands in the Above Python Script:
+
+1. Opening a page:
+   - Selenese open command: In Python, driver.get('https://www.google.com') performs the same action.
+
+2. Locating an element:
+   - Selenese findElement: In Python, we use driver.find_element with locators like By.NAME, By.ID, By.XPATH, etc.
+
+3. Typing text:
+   - Selenese type command: In Python, we simulate typing into an input field using send_keys(). Here, we used it to enter the search query Selenium with Python.
+
+4. Clicking an element:
+   - Selenese click command: In Python, the equivalent would be element.click(). In this case, after typing the query, pressing Enter (Keys.RETURN) simulates clicking the "Search" button.
+
+5. Checking page content:
+   - Selenese assertText: In Python, we can check the page's source or title to confirm whether the desired content is loaded (assert "Selenium" in driver.page_source).
+
+6. Closing the browser:
+   - Selenese close: In Python, we use driver.quit() to close the browser after the automation task.
+
+
+- Selenese commands were designed for use with the Selenium IDE (a browser-based tool), where commands like open, click, and assertText were used directly.
+- With Python Selenium, you interact with the WebDriver through Python functions and methods (like find_element, send_keys, and assert).
+- Modern Selenium provides more power and flexibility by allowing you to write full scripts and utilize the full capabilities of Python.
+
+
+In Selenium, Selenese commands are divided into different categories based on the type of action they perform. These categories can be mapped to different actions in Python Selenium as well. The main categories of Selenese commands are:
+
+1. Actions (Commands for interacting with elements)
+   These commands perform actions like clicking, typing, or selecting an option from a dropdown. In Python Selenium, these are typically mapped to methods like click(), send_keys(), etc.
+
+2. Assertions (Commands for verifying conditions)
+   These commands are used to check the state of the web page, such as verifying if a certain text exists on the page or checking if an element is present. In Python, you typically use assertions like assert to verify these conditions.
+
+3. Control Flow (Commands for controlling the flow of the script)
+   These commands allow you to control the execution flow of the test, such as if-else conditions, loops, or waiting for a certain period of time. In Python, these are implemented using standard control flow constructs like if, while, for, and sleep().
+
+4. Navigation's (Commands for page navigation)
+   These commands are used to navigate between pages, go back to the previous page, or refresh the page. In Python Selenium, you can use methods like get(), back(), forward(), and refresh() to achieve this.
+
+5. Window & Alerts (Commands for handling windows, pop-ups, and alerts)
+   These commands handle browser windows, pop-up alerts, and handling multiple windows. In Python, the switch_to method is used to handle different windows and pop-ups.
+
+6. Element Selection (Commands for identifying elements)
+   These commands are used for finding elements on a webpage. In Python Selenium, this is done with methods like find_element() and find_elements() using different locators like By.ID, By.NAME, By.XPATH, etc.
+
+======================================================================================================
+Methods
+
+1. Actions (Clicking, Typing, etc.)
+   - click
+   - type
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+
+search_box = driver.find_element(By.NAME, "q")
+search_box.send_keys("Selenium WebDriver")  # Type the text
+
+search_box.send_keys(Keys.RETURN)
+driver.quit()
+
+Here, send_keys() simulates typing (equivalent to type in Selenese), and Keys.RETURN simulates clicking the Enter key (equivalent to click).
+
+
+
+2. Assertions (Verifying Conditions)
+   - assertText
+   - assertTextNotPresent
+
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+assert "Google" in driver.title  # Equivalent to assertText command in Selenese
+
+search_button = driver.find_element(By.NAME, "btnK")
+assert search_button.get_attribute("value") == "Google Search"
+driver.quit()
+
+Here, we use the assert statement to check conditions, just like assertText in Selenese.
+
+
+
+3. Control Flow (Loops, Conditions, Delays)
+   - waitForElementPresent
+   - waitForText
+   - pause
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+time.sleep(2)  # Sleep for 2 seconds (not the best way, but it works)
+search_box = driver.find_element(By.NAME, "q")
+if search_box.is_displayed():
+    search_box.send_keys("Selenium WebDriver")
+else:
+    print("Search box is not available!")
+
+time.sleep(3)
+driver.quit()
+
+Here, we simulate waiting with time.sleep() (although it's better to use WebDriver's WebDriverWait in real-world scenarios). We also use if-else statements for control flow.
+
+
+
+4. Navigation's (Back, Forward, Refresh)
+   - open
+   - goBack
+   - refresh
+
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+driver.get("https://www.example.com")
+driver.back()
+driver.refresh()
+driver.quit()
+
+Here, we use back() and refresh() to navigate, similar to Selenese commands.
+
+
+
+5. Window & Alerts (Switching Windows, Handling Alerts)
+   - selectWindow
+   - acceptAlert
+   - dismissAlert
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+driver.execute_script("window.open('https://www.example.com');")
+driver.switch_to.window(driver.window_handles[1])  # Switch to the second window
+try:
+    alert = Alert(driver)
+    alert.accept()  # Accept the alert (similar to 'acceptAlert' in Selenese)
+except:
+    print("No alert present")
+driver.quit()
+
+Here, switch_to.window() is used to switch between browser windows, and Alert.accept() is used to handle alerts.
+
+
+
+6. Element Selection (Locating Elements)
+   - findElement
+   - findElements
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://www.google.com")
+search_box = driver.find_element(By.NAME, "q")
+links = driver.find_elements(By.TAG_NAME, "a")
+driver.quit()
+
+Here, find_element() and find_elements() are used to locate single or multiple elements, respectively, just like in Selenese.

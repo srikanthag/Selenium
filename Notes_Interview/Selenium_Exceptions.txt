@@ -1,0 +1,207 @@
+In Selenium with Python, various exceptions can occur during interaction with web elements. These exceptions can be handled to ensure your script continues smoothly and provides helpful error messages. Below is a list of common Selenium exceptions along with examples of how to handle each one.
+
+1. NoSuchElementException:
+This exception is raised when an element could not be found in the DOM.
+
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Trying to find a non-existing element
+    element = driver.find_element_by_id("non_existent_element")
+except NoSuchElementException as e:
+    print(f"Error: Element not found - {e}")
+finally:
+    driver.quit()
+
+
+2. TimeoutException:
+Raised when a command (like waiting for an element to appear) exceeds the specified time limit.
+
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Wait for an element that may not appear in time
+    WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "non_existent_element")))
+except TimeoutException as e:
+    print(f"Error: Timeout waiting for element - {e}")
+finally:
+    driver.quit()
+
+
+3. NoSuchWindowException:
+Raised when you try to switch to a window that doesn't exist.
+
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchWindowException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Try switching to a window that doesn't exist
+    driver.switch_to.window("non_existent_window")
+except NoSuchWindowException as e:
+    print(f"Error: Window not found - {e}")
+finally:
+    driver.quit()
+
+
+4. NoSuchFrameException:
+Raised when trying to switch to a frame that doesn’t exist.
+
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchFrameException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Try switching to a non-existent frame
+    driver.switch_to.frame("non_existent_frame")
+except NoSuchFrameException as e:
+    print(f"Error: Frame not found - {e}")
+finally:
+    driver.quit()
+
+
+5. ElementNotInteractableException:
+Raised when an element is not interactable, for example, if it is hidden or disabled.
+
+from selenium import webdriver
+from selenium.common.exceptions import ElementNotInteractableException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Trying to click on an element that is not interactable (e.g., disabled)
+    button = driver.find_element_by_id("disabled_button")
+    button.click()
+except ElementNotInteractableException as e:
+    print(f"Error: Element not interactable - {e}")
+finally:
+    driver.quit()
+
+
+6. StaleElementReferenceException:
+Raised when the DOM is refreshed and the previously located element is no longer available.
+
+from selenium import webdriver
+from selenium.common.exceptions import StaleElementReferenceException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    element = driver.find_element_by_id("some_element")
+    driver.refresh()  # Refreshing the page
+    element.click()  # The element is no longer in the DOM
+except StaleElementReferenceException as e:
+    print(f"Error: Element is no longer available - {e}")
+finally:
+    driver.quit()
+
+
+7. ElementNotSelectableException:
+Raised when trying to select an element that cannot be selected, like a disabled dropdown.
+
+from selenium import webdriver
+from selenium.common.exceptions import ElementNotSelectableException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Trying to select an option from a disabled dropdown
+    dropdown = driver.find_element_by_id("disabled_dropdown")
+    dropdown.click()
+except ElementNotSelectableException as e:
+    print(f"Error: Element cannot be selected - {e}")
+finally:
+    driver.quit()
+
+
+8. InvalidElementStateException:
+Raised when an element is in an invalid state, like trying to enter text into a read-only field.
+
+from selenium import webdriver
+from selenium.common.exceptions import InvalidElementStateException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Try to type in a readonly input field
+    input_field = driver.find_element_by_id("readonly_field")
+    input_field.send_keys("Test Text")
+except InvalidElementStateException as e:
+    print(f"Error: Invalid element state - {e}")
+finally:
+    driver.quit()
+
+
+9. WebDriverException:
+A general exception for issues that are not covered by more specific exceptions.
+
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Simulating a WebDriver-related issue (e.g., incorrect path to driver)
+    driver.quit()
+except WebDriverException as e:
+    print(f"Error: WebDriver issue - {e}")
+finally:
+    driver.quit()
+
+
+10. UnexpectedAlertPresentException:
+Raised when an unexpected alert pops up during test execution.
+
+from selenium import webdriver
+from selenium.common.exceptions import UnexpectedAlertPresentException
+from selenium.webdriver.common.alert import Alert
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Simulating an unexpected alert
+    driver.execute_script("alert('Unexpected Alert')")
+    Alert(driver).accept()  # Handling the alert
+except UnexpectedAlertPresentException as e:
+    print(f"Error: Unexpected alert present - {e}")
+finally:
+    driver.quit()
+
+
+11. JavascriptException:
+Raised when there is an error while executing JavaScript via `execute_script()`.
+
+from selenium import webdriver
+from selenium.common.exceptions import JavascriptException
+
+driver = webdriver.Chrome()
+
+try:
+    driver.get("https://www.example.com")
+    # Trying to execute invalid JavaScript
+    driver.execute_script("invalidJavaScriptCode()")
+except JavascriptException as e:
+    print(f"Error: JavaScript execution error - {e}")
+finally:
+    driver.quit()

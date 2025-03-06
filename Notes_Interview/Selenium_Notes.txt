@@ -1,7 +1,7 @@
 Selenium.
 Selenium is a powerful tool for automating web browsers, allowing you to simulate user interactions with web applications. Its architecture is designed to work with multiple programming languages and browsers. Let’s break it down with an example and explanation of its architecture.
 
-=================================================================================================================
+=====================================================================================================
 Selenium Architecture Overview:
 
 Selenium follows a client-server architecture. Here's how it works:
@@ -66,7 +66,7 @@ Test Case: Verify the login functionality of a web application.
 
 This architecture allows Selenium to provide cross-browser and cross-platform testing in an automated, scalable, and flexible way.
 
-=================================================================================================================================
+=======================================================================================================
 ** Child and Parent relationship
 In Selenium, you can use XPath to locate elements based on their parent-child relationships, similar to how you would do in general XPath.
 
@@ -112,7 +112,7 @@ Child to Parent: Use /.. to navigate from a child element to its parent.
 Parent to Child: Use / to select a child from the parent.
 Locate Elements in Selenium: Use find_element_by_xpath() or find_elements_by_xpath() methods to find elements with the XPath expressions.
 
-=================================================================================================================================
+=======================================================================================================
 CSS and XPATH Locators
 
 In web automation (e.g., Selenium), **CSS Locators** and **XPath Locators** are used to locate and interact with web elements on a page. Both have their advantages and use cases depending on the situation.
@@ -269,7 +269,135 @@ When to Use Each:
 - Use CSS when you want quick and simple selectors based on id, class, or attributes.
 - Use XPath when you need more complex queries, such as finding elements based on text content, navigating relative to other elements, or dealing with complicated structures.
 
-=================================================================================================================================
+=======================================================================================================
+Absolute XPath and Relative XPath
+
+Absolute XPath: This is the full path from the root element (i.e., the <html> element) to the desired element. It is not flexible and may break if the structure of the HTML changes.
+Absolute XPath starts from the root (/html) and follows a fixed path to the target element.
+
+
+Relative XPath: This is a more flexible path that starts from any node, not necessarily the root element. It allows you to find an element using attributes or partial paths.
+Relative XPath can start from any point and is often more flexible. It uses // to find an element anywhere in the document
+
+Eg html
+<html>
+  <body>
+    <div id="container">
+      <h1>Welcome</h1>
+      <p>This is an example page.</p>
+    </div>
+  </body>
+</html>
+
+
+--> To locate the <h1> element with absolute XPath:
+
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.get('file:///path/to/your/file.html')
+h1_element = driver.find_element_by_xpath('/html/body/div/h1')
+print(h1_element.text)
+driver.quit()
+
+--> To locate the <h1> element using Relative XPath:
+
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.get('file:///path/to/your/file.html')
+h1_element = driver.find_element_by_xpath('//div[@id="container"]/h1')
+print(h1_element.text)
+driver.quit()
+
+=======================================================================================================
+
+Independent and Dependent XPath:
+
+An independent XPath can find an element without relying on the context or location of other elements. It doesn't depend on a relationship with other elements to locate the desired target element.
+Example: You directly search for an element using its attributes like id, name, class, etc.
+
+A dependent XPath is used when we need to locate an element in relation to another element. In other words, this XPath is dependent on another element's position, attribute, or relationship in the DOM structure
+
+
+<html>
+  <body>
+    <div id="container">
+      <h1>Welcome</h1>
+      <p class="info">This is an example page.</p>
+      <a href="https://example.com">Visit Example</a>
+    </div>
+  </body>
+</html>
+
+We want to find the <a> element using an independent XPath (without depending on other elements)
+
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.get('file:///path/to/your/file.html')
+link_element = driver.find_element_by_xpath('//a[@href="https://example.com"]')
+print(link_element.text)
+driver.quit()
+
+Given the same HTML structure as above, if we want to locate the <a> element after the <p> tag with class info, we would use a dependent XPath.
+
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.get('file:///path/to/your/file.html')
+link_element = driver.find_element_by_xpath('//p[@class="info"]/following-sibling::a')
+print(link_element.text)
+driver.quit()
+
+In this case, the XPath //p[@class="info"]/following-sibling::a is dependent on the <p> element with class info because it locates the <a> element that comes after it.
+
+=======================================================================================================
+
+Assert and Verify
+
+The assert statement is used to check if a condition is True. If the condition fails (i.e., it's False), it will immediately raise an AssertionError and stop the test execution. This is useful when you want to ensure that something is true and stop the test immediately when it fails.
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get("https://example.com")
+assert "Example Domain" in driver.title, "Title does not match"
+print("Assertion passed!")
+driver.quit()
+
+The test checks if the title of the page contains "Example Domain".
+If the condition fails, an AssertionError will be raised, and the message "Title does not match" will be displayed.
+
+
+
+The term verify isn't an official part of Python or Selenium but is often used in the context of testing frameworks, like unittest or pytest. However, in some testing frameworks (like unittest or pytest), verification is done using methods like assertEqual, assertTrue, etc., but they allow for more granular handling of failed checks (like continuing with the next test steps). Some third-party tools like Selenium with TestNG or JUnit also provide verification without stopping execution on failure.
+
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.get("https://example.com")
+try:
+    assert "Nonexistent Domain" in driver.title
+    print("Verification passed!")
+except AssertionError:
+    print("Verification failed, but continuing...")
+
+print("Test continues...")
+driver.quit()
+
+The test verifies whether the title of the page contains "Nonexistent Domain".
+If the verification fails, the error is caught in the except block, and the test continues.
+
+
+Key Differences:
+assert: If the condition fails, the test stops immediately.
+verify: In the context of custom implementation, the test continues even if the condition fails. It doesn't stop execution.
+
+=======================================================================================================
+
+
+
+
+
+
+
+
+
 
 
 
