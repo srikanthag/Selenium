@@ -9,7 +9,7 @@ from time import sleep
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
-driver = webdriver.Chrome(r"C:\Users\srikanth\Desktop\IT\Testing\selenium_tutorial\drivers\chromedriver.exe")
+driver = webdriver.Chrome(r"D:\IT\Selenium\Chromedriver\chromedriver.exe")
 sleep(3)
 driver.get("https://www.amazon.in/")
 

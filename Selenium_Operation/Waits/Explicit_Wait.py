@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from time import sleep
 
-driver = webdriver.Chrome(r"C:\Users\hp\Desktop\IT\Testing\Selenium_Class\Chromedriver\chromedriver.exe")
+driver = webdriver.Chrome(r"D:\IT\Selenium\Chromedriver\chromedriver.exe")
 driver.get("file:///C:/Users/srikanth/Downloads/demo.html")
 
 wait = WebDriverWait(driver, 10)

@@ -1,0 +1,50 @@
+In Selenium, we use waits to make sure elements are present, visible, or clickable before interacting with them. This is crucial in web automation because it ensures that the elements have fully loaded and are ready to be used, avoiding race conditions or errors.
+
+1. Implicit Wait:
+Implicit Wait is set globally for the entire WebDriver instance.
+It tells Selenium to wait a specified amount of time when trying to find an element if it’s not immediately available.
+It’s applied to every find_element() and find_elements() call.
+
+* Implicit Wait time is applied to all the elements in the script
+* An Implicitly wait is one of the ways to request selenium not throw any exception until provided time.
+* If the element is found before implicitly wait time, selenium moves to the next commands in the program without waiting further, this wait is also called dynamic wait. If element not present it throws Nosuchelement exception
+
+from selenium import webdriver
+from time import sleep
+from selenium.webdriver.common.keys import Keys
+from time import sleep
+
+driver = webdriver.Chrome(r"C:\Users\srikanth\Desktop\IT\Testing\selenium_tutorial\drivers\chromedriver.exe")
+sleep(3)
+driver.get("https://www.amazon.in/")
+
+driver.implicitly_wait(10)  # applicable for all the elements in the page
+
+driver.find_element_by_xpath("//input[@id='twotabsearchtextbox']").send_keys('mens Fasttrack watch', Keys.ENTER)
+driver.find_element_by_xpath("//span[@id='nav-cart-count']")
+
+===================================================================================================
+
+2. Explicit Wait:
+Explicit Wait is used to wait for specific conditions (such as visibility, clickability) for a particular element before proceeding with the action.
+It provides more control compared to implicit wait since you can set specific conditions to wait for.
+
+* Explicit Wait time is applied only to those elements which are intended by us
+* An explicit wait makes WebDriver wait for a certain condition to occur before proceeding further with execution.
+* 'visibility_of_element_located' checks if the web element is present on the DOM and also visible on the webpage.
+* TimeoutException will be raised if either the element is not loaded onto the DOM or the element is not visible on the web page within timeout period.
+* sleep() i.e. a static wait that will halt the test execution for some specified time and then perform the next step.
+
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from time import sleep
+
+driver = webdriver.Chrome(r"C:\Users\hp\Desktop\IT\Testing\Selenium_Class\Chromedriver\chromedriver.exe")
+driver.get("file:///C:/Users/srikanth/Downloads/demo.html")
+
+wait = WebDriverWait(driver, 10)
+wait.until(expected_conditions.visibility_of_element_located(('name', 'fname')))          #wait untill 'fname' visible
+driver.find_element_by_name('fname').send_keys('srikanth')
+
+
