@@ -1,0 +1,5 @@
+Data-driven testing (DDT) is a testing methodology where you use different sets of data to test the same functionality. In Selenium, data-driven testing can be done by reading input data from a variety of sources like Excel, CSV, JSON, etc.
+
+For Excel file:
+
+Here's an example of how you can perform Data-Driven Testing with Selenium and Python using unittest and openpyxl (for reading data from an Excel file):

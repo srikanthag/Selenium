@@ -40,7 +40,7 @@ Selenium Components:
 Let's say you want to automate a simple test scenario to check the login functionality on a website.
 
 Test Case: Verify the login functionality of a web application.
-1. Test Script: You write a Selenium WebDriver script using Java.
+1. Test Script: You write a Selenium WebDriver script using Python.
 
 2. Execution Flow:
    - The WebDriver (ChromeDriver in this case) initiates a session with the Chrome browser.

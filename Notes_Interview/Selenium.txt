@@ -468,7 +468,7 @@ With Selenium 4, the IDE is revived and now its add-on is available for major we
 ---------------------------------------------------------------------------------------------------------
 55. Verification
 We check whether we are developing the right product or not.
-Verification includes different methods like Inspections, Reviews and Walkthroughs.
+Verification includes different methods like Inspections, Reviews and Walkthroughes.
 Quality assurance comes under verification testing.
 Verification is done before the validation testing.
 ---------------------------------------------------------------------------------------------------------

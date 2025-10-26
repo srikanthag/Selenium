@@ -1,0 +1,28 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By # Essential for using locator strategies
+
+# Assume 'driver' is an initialized WebDriver instance (e.g., Chrome)
+
+# 1. ID
+element_id = driver.find_element(By.ID, "unique_id")
+
+# 2. Name
+element_name = driver.find_element(By.NAME, "user-input")
+
+# 3. Class Name
+element_class = driver.find_element(By.CLASS_NAME, "data-card")
+
+# 4. Tag Name (Usually to find multiple elements)
+elements_tags = driver.find_elements(By.TAG_NAME, "li")
+
+# 5. Link Text
+element_link = driver.find_element(By.LINK_TEXT, "Click Here")
+
+# 6. Partial Link Text
+element_partial_link = driver.find_element(By.PARTIAL_LINK_TEXT, "Click")
+
+# 7. CSS Selector
+element_css = driver.find_element(By.CSS_SELECTOR, "input[name='password']")
+
+# 8. XPath
+element_xpath = driver.find_element(By.XPATH, "//button[contains(text(), 'Sign In')]")
