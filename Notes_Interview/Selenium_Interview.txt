@@ -44,13 +44,13 @@ Syntax:
 //HTMLTAG[@attribute='value’]
 
 * Absolute XPath:
-Begins from the root node of the document (/html) and traces the path down to the desired element.
-Less preferable because it can become brittle if the structure of the webpage changes.
+ An absolute XPath specifies the complete path from the root element (usually <html>) of the document to the target element.
+  It always starts with a single forward slash (/), indicating the root.
 E.g. element = driver.find_element_by_xpath("/html/body/div[1]/div[2]/form/input")
 
 * Relative XPath:
+A relative XPath starts from a specific point within the document, referencing the target element in relation to other elements or attributes. It does not require the full path from the root.
 Begins its path selection from the context node (usually starts with //).
-More adaptable as it's based on the structure of the element rather than the entire document.
 E.g. element = driver.find_element_by_xpath("//form/input")
 ---------------------------------------------------------------------------------------------------------
 5. Write xpath for a scenario

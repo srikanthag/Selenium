@@ -71,7 +71,7 @@ in stand up meeting we discussed what we have done yesterday and how many of the
 at the end of the day we send report to scrum master.
 
 7. Explain the framework or what kind of framework you are using.
-We are using DataDriven framework with POM approach or design pattern with pytest unittest framework.
+We are using DataDriven framework with POM approach or design pattern with pytest framework.
 
 Explain the framework structure.
 my frame work consist of following folder
